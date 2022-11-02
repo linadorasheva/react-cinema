@@ -1,12 +1,19 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { movieAPI } from '../services/MovieService';
+import filtersReducer from './reducers/FiltersSlice';
+import paginatinReducer from './reducers/PaginationSlice';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  filtersReducer,
+  paginatinReducer,
+  [movieAPI.reducerPath]: movieAPI.reducer,
+});
 
 export const storeSetup = () => {
   return configureStore({
-    reducer: {
-      rootReducer,
-    },
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(movieAPI.middleware),
   });
 };
 
