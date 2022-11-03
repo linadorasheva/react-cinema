@@ -1,0 +1,104 @@
+.navigation {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  height: 96px;
+  padding: 26px 20px 0;
+  margin-left: -20px;
+
+  &__button {
+    position: relative;
+    margin-right: 32px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__button-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &--close {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 241px;
+    height: 33px;
+    color: $soft-black;
+
+    & svg {
+      color: inherit;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__list {
+    display: none;
+  }
+
+  &--open {
+    background-color: $soft-black;
+
+    & .navigation__logo {
+      color: $white;
+
+      &:hover {
+        color: $grey;
+        transition: color 0.15s ease-in;
+      }
+    }
+
+    & .navigation__button-icon--burger {
+      display: none;
+    }
+
+    & .navigation__button-icon--close {
+      display: block;
+      color: $white;
+
+      &:hover {
+        color: $grey;
+        transition: color 0.15s ease-in;
+      }
+    }
+
+    & .navigation-list {
+      display: block;
+    }
+  }
+}
+
+.navigation-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 333px;
+  margin-top: 96px;
+  padding: 0 20px 20px;
+  z-index: 1;
+  background-color: $black;
+
+  &__link {
+    display: block;
+    padding: 12px 12px 12px 0;
+    @include font(16, 20);
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      color: $grey;
+      transition: color 0.15s ease-in;
+    }
+  }
+}

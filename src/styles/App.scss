@@ -5,13 +5,19 @@
 
 @import './layout.scss';
 
+@import '../components/Header/Header.scss';
+@import '../components/Navigation/Navigation.scss';
+
 html,
 body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   font-size: 16px;
   line-height: 16px;
   background-color: $white;
-  margin: 0;
-  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {

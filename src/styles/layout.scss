@@ -1,32 +1,31 @@
 .layout {
-	position: relative;
-	display: flex;
-	flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 
-	&__header {
-    display: flex;
-    justify-content: flex-end;
+  &__header {
     flex-shrink: 0;
-    height: 64px;
-    background-color: $soft-black;
-	}
+    height: 96px;
+    background-color: $grey;
+  }
 
   &__content {
     flex-grow: 1;
+    flex-shrink: 1;
     padding-top: 54px;
   }
-  
+
   &__footer {
     flex-shrink: 0;
     height: 64px;
   }
-} 
+}
 
 .container {
   position: relative;
   width: 100%;
-	padding: 0 16px;
+  padding: 0 16px;
   margin: 0 auto;
 
   @media #{$md-and-up} {
