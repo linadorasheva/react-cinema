@@ -1,0 +1,45 @@
+.section {
+  margin-bottom: 52px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    @include font(32, 36);
+  }
+
+  &__link {
+    display: flex;
+    margin-left: -5px;
+    margin-bottom: -5px;
+    padding: 5px;
+    @include font(16, 20);
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    text-decoration: none;
+    color: $soft-black;
+
+    &:hover {
+      color: $tomato;
+      transition: color 0.15s ease-in;
+
+      & .section__link-icon {
+        color: $tomato;
+        transition: color 0.15s ease-in;
+      }
+    }
+  }
+
+  &__link-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__content {
+    display: flex;
+  }
+}
