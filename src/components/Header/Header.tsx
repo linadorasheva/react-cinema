@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import Navigation from '../Navigation/Navigation';
 
-interface HeaderProps {
+interface IHeaderProps {
   className: string;
 }
 
-const Header: FC<HeaderProps> = ({ className }) => {
+const Header: FC<IHeaderProps> = ({ className }) => {
   return (
     <header className={`${className} header`}>
       <div className="container">

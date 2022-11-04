@@ -13,3 +13,5 @@ export const movieAPI = createApi({
     }),
   }),
 });
+
+export const { useGetMoviesQuery } = movieAPI;

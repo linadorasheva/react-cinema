@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { RoutesNameEnum } from '../../types/common';
 
 const Navigation: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,29 +23,29 @@ const Navigation: FC = () => {
           </svg>
         </span>
       </button>
-      <a href="/" className="navigation__logo">
+      <Link to={RoutesNameEnum.MAIN} className="navigation__logo">
         <svg>
           <use xlinkHref="/images/logo.svg#logo" />
         </svg>
-      </a>
+      </Link>
       <ul className="navigation__list navigation-list">
         <li className="navigation-list__item">
-          <Link to="/" className="navigation-list__link">
+          <Link to={RoutesNameEnum.MAIN} className="navigation-list__link">
             Главная
           </Link>
         </li>
         <li className="navigation-list__item">
-          <Link to="/films" className="navigation-list__link">
+          <Link to={RoutesNameEnum.FILMS} className="navigation-list__link">
             Фильмы
           </Link>
         </li>
         <li className="navigation-list__item">
-          <Link to="/serials" className="navigation-list__link">
+          <Link to={RoutesNameEnum.SERIALS} className="navigation-list__link">
             Сериалы
           </Link>
         </li>
         <li className="navigation-list__item">
-          <Link to="/cartoons" className="navigation-list__link">
+          <Link to={RoutesNameEnum.CARTOONS} className="navigation-list__link">
             Мультфильмы
           </Link>
         </li>

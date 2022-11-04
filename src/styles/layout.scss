@@ -30,6 +30,7 @@
 
   @media #{$md-and-up} {
     max-width: 720px;
+    padding: 0;
   }
 
   @media #{$lg-and-up} {
@@ -41,6 +42,6 @@
   }
 
   @media #{$xxl-and-up} {
-    max-width: 1276px;
+    max-width: 1380px;
   }
 }
