@@ -11,6 +11,7 @@ interface IMovieEntityLogo {
 }
 
 interface IMovieEntityBackdrop {
+  _id?: string;
   url: string;
   previewUrl: string;
 }
@@ -44,17 +45,26 @@ interface IMovieEntityTrailer {
   type?: string;
 }
 
+interface IMovieEntityVideos {
+  _id?: string;
+  trailers: IMovieEntityTrailer[];
+  teasers: IMovieEntityTrailer[];
+}
+
 interface IMovieEntityBudget {
+  _id?: string;
   value: number;
   currency: string;
 }
 
 interface IFee {
+  _id?: string;
   value: number;
   currency: string;
 }
 
 interface IMovieEntityFees {
+  _id?: string;
   usa?: IFee;
   russia?: IFee;
   world?: IFee;
@@ -66,12 +76,13 @@ interface IMovieEntityDistributors {
 }
 
 interface IMovieEntityPremiere {
+  _id?: string;
   country?: string;
-  world?: Date;
-  russia?: Date;
-  bluray?: Date;
-  dvd?: Date;
-  cinema?: Date;
+  world?: string;
+  russia?: string;
+  bluray?: string;
+  dvd?: string;
+  cinema?: string;
 }
 
 interface IMovieEntityImages {
@@ -93,17 +104,24 @@ interface IMovieEntityLang {
 
 interface IMovieEntityPerson {
   id: number;
-  name: string;
-  enName: string;
-  photo: string;
-  description: string;
-  enProfession: string;
+  name?: string;
+  enName?: string;
+  photo?: string;
+  description?: string;
+  enProfession?:
+    | 'director'
+    | 'actor'
+    | 'design'
+    | 'producer'
+    | 'composer'
+    | 'editor';
 }
 
 interface IMovieEntityExternalId {
   _id?: string;
   tmdb?: number | null;
   imdb?: string | null;
+  kpHD?: string | null;
 }
 
 interface IMovieEntityGenre {
@@ -123,7 +141,7 @@ interface IEpisode {
   number: number;
   name: string | null;
   enName: string;
-  date: Date;
+  date: Date | string;
   description: string | null;
 }
 export interface ISerialEntity {
@@ -139,7 +157,7 @@ export interface IMoviePoster {
   url: string;
 }
 export interface IMovieRating {
-  _id: string;
+  _id?: string;
   await: number;
   filmCritics: number;
   imdb: number;
@@ -153,24 +171,45 @@ interface IMovieEntitySeasonsInfo {
 }
 
 interface IMovieEntityTechnology {
+  _id?: string;
   has3D: boolean;
   hasImax: boolean;
 }
 
 interface IMovieEntitySequels {
-  alternativeName: string;
-  enName: string;
+  _id?: string;
+  alternativeName?: string;
+  name?: string;
+  enName?: string;
   id: number;
   poster: IMoviePoster;
   type: string;
 }
 
-export interface ISimilarMovie {
+interface ISimilarMovie {
+  _id?: string;
   alternativeName: string;
   enName: string;
   id: number;
   name: string;
   poster: IMoviePoster;
+}
+interface IWatchabilityItem {
+  _id: string;
+  name: string;
+  url: string;
+  logo: {
+    _id: string;
+    url: string;
+  };
+}
+interface IMovieEntityWatchability {
+  _id?: string;
+  items: IWatchabilityItem[];
+}
+interface IMovieEntityImagesInfo {
+  _id?: string;
+  framesCount: number;
 }
 
 export interface IMovieEntity {
@@ -179,8 +218,9 @@ export interface IMovieEntity {
   alternativeName?: string | null;
   backdrop?: IMovieEntityBackdrop;
   budget?: IMovieEntityBudget;
+  collections?: [];
   countries?: IMovieEntityCountry[];
-  createDate?: Date;
+  createDate?: Date | string;
   description?: string;
   distributors?: IMovieEntityDistributors;
   fees?: IMovieEntityFees;
@@ -189,6 +229,7 @@ export interface IMovieEntity {
   id: number;
   enName?: string | null;
   images?: IMovieEntityImages;
+  imagesInfo?: IMovieEntityImagesInfo;
   lists?: [];
   logo?: IMovieEntityLogo;
   movieLength?: number | null;
@@ -200,21 +241,25 @@ export interface IMovieEntity {
   productionCompanies?: IMovieEntityProductionCompanies[];
   rating?: IMovieEntityRating;
   ratingMpaa?: string;
+  releaseYears?: [];
   seasonsInfo?: IMovieEntitySeasonsInfo[];
   sequelsAndPrequels?: IMovieEntitySequels[];
   shortDescription?: string | null;
-  similarMovies?: IMovieEntity[];
+  similarMovies?: ISimilarMovie[];
   slogan?: string;
   spokenLanguages?: IMovieEntityLang[];
   status?: string;
   technology?: IMovieEntityTechnology;
   ticketsOnSale?: boolean;
+  top10?: null | boolean | string;
+  top250?: null | boolean | string;
   type?: string;
   typeNumber?: number;
-  updateDates?: Date[];
-  updatedAt?: Date;
-  videos?: { trailers: IMovieEntityTrailer[] };
+  updateDates?: Date[] | string[];
+  updatedAt?: Date | string;
+  videos?: IMovieEntityVideos;
   votes?: IMovieEntityVotes;
+  watchability?: IMovieEntityWatchability;
   year?: number;
 }
 

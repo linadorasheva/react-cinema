@@ -1,5 +1,8 @@
 export interface IFact {
-  name: string;
+  name?: string;
+  value?: string;
+  type?: string;
+  spoiler?: boolean;
 }
 
 export const enum RoutesNameEnum {
