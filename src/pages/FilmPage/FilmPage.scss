@@ -49,7 +49,23 @@
 
   &__head {
     margin-bottom: 32px;
-    @include font(28, 32);
+  }
+
+  &__title {
+    @include font(32, 32);
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+    @include font(18, 20);
+    color: $deep-grey;
+  }
+
+  &__short-description {
+    max-width: 600px;
+    @include font(14, 20);
+    font-weight: 500;
   }
 
   &__buttons {

@@ -1329,7 +1329,12 @@ const FilmPage: FC = () => {
           <section className="film-page__section section-main">
             <div className="section-main__head">
               <h1 className="section-main__title">{mock.name}</h1>
-              <p className="section-main__title">{mock.enName}</p>
+              <p className="section-main__subtitle">
+                {mock.enName || mock.alternativeName}
+              </p>
+              <p className="section-main__short-description">
+                {mock.shortDescription}
+              </p>
             </div>
             <div className="section-main__buttons">
               <button type="button" className="section-main__watch-btn">
