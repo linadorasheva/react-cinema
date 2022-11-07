@@ -5,7 +5,16 @@ interface FooterProps {
 }
 
 const Footer: FC<FooterProps> = ({ className }) => {
-  return <footer className={className}>2022</footer>;
+  return (
+    <footer className={`${className} page-footer`}>
+      <div className="container">
+        <div className="page-footer__content">
+          <p className="page-footer__city">С.-Петербург</p>
+          <p>2022</p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
