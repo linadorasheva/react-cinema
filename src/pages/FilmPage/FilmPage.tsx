@@ -1,4 +1,12 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import {
+  Outlet,
+  useLocation,
+  useNavigate,
+  useOutletContext,
+} from 'react-router-dom';
+import TabBar from '../../components/TabBar/TabBar';
+import { IFact, ITabBar, TabsNameEnum } from '../../types/common';
 import { IMovieEntity } from '../../types/movie';
 import { convertNumbers, formatDate } from '../../utils/common';
 import { getMovieDuration } from '../../utils/movieUtils';
@@ -1265,88 +1273,149 @@ const FilmPage: FC = () => {
   };
   // todo end
 
+  const tabs: ITabBar[] = [
+    {
+      id: 0,
+      name: TabsNameEnum.OVERVIEW,
+      routeName: '',
+    },
+    {
+      id: 1,
+      name: TabsNameEnum.FACTS,
+      routeName: 'facts',
+    },
+    {
+      id: 2,
+      name: TabsNameEnum.IMAGES,
+      routeName: 'images',
+    },
+  ];
+
+  const [activeTab, setActiveTab] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const findActiveTab = (tabId: number): void => {
+    const a = tabs.find((tab) => tab.id === tabId);
+    navigate(a?.routeName ?? '');
+  };
+
+  const tabClickHandler = (tabId: number): void => {
+    setActiveTab(tabId);
+    findActiveTab(tabId);
+  };
+
+  useEffect(() => {
+    const route = location.pathname.split('/')[3];
+    if (route) {
+      const activeTab = tabs.find((tab) => tab.routeName === route);
+      activeTab && setActiveTab(activeTab.id);
+    }
+  }, []);
+
   return (
     <div className="film-page page">
-      <section className="film-page__section section-left">
-        <div className="section-left__poster">
-          <img
-            src={mock.poster?.previewUrl}
-            alt={mock.name}
-            className="section-left__img"
-          />
-        </div>
-      </section>
-      <section className="film-page__section section-main">
-        <div className="section-main__head">
-          <h1 className="section-main__title">{mock.name}</h1>
-          <p className="section-main__title">{mock.enName}</p>
-        </div>
-        <div className="section-main__buttons">
-          <button type="button" className="section-main__watch-btn">
-            <span className="section-main__watch-btn-icon">
-              <svg>
-                <use xlinkHref="/images/icon-play.svg#play" />
-              </svg>
-            </span>
-            <span className="section-main__watch-btn-name">Смотреть</span>
-          </button>
-          <button
-            onClick={() => favouriteClickHandler()}
-            className={getFavouriteClass()}
-            type="button"
-          >
-            <span className="section-main__favourite-btn-icon">
-              <svg>
-                <use xlinkHref="/images/icon-favourites-fill.svg#favourites" />
-              </svg>
-            </span>
-          </button>
-        </div>
-        <div className="section-main__info movie-info">
-          <h3 className="movie-info__head">О фильме</h3>
-          <div className="movie-info__wrapper">
-            <div className="movie-info__main">
-              <ul className="movie-info__list">
-                {infoItems.map((item, index) => (
-                  <li key={index} className="movie-info__item">
-                    <span className="movie-info__name">{item.name}</span>
+      <div className="container film-page__container">
+        <div className="film-page__content">
+          <section className="film-page__section section-left">
+            <div className="section-left__poster">
+              <img
+                src={mock.poster?.previewUrl}
+                alt={mock.name}
+                className="section-left__img"
+              />
+            </div>
+          </section>
+          <section className="film-page__section section-main">
+            <div className="section-main__head">
+              <h1 className="section-main__title">{mock.name}</h1>
+              <p className="section-main__title">{mock.enName}</p>
+            </div>
+            <div className="section-main__buttons">
+              <button type="button" className="section-main__watch-btn">
+                <span className="section-main__watch-btn-icon">
+                  <svg>
+                    <use xlinkHref="/images/icon-play.svg#play" />
+                  </svg>
+                </span>
+                <span className="section-main__watch-btn-name">Смотреть</span>
+              </button>
+              <button
+                onClick={() => favouriteClickHandler()}
+                className={getFavouriteClass()}
+                type="button"
+              >
+                <span className="section-main__favourite-btn-icon">
+                  <svg>
+                    <use xlinkHref="/images/icon-favourites-fill.svg#favourites" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div className="section-main__info movie-info">
+              <h3 className="movie-info__head">О фильме</h3>
+              <div className="movie-info__wrapper">
+                <div className="movie-info__main">
+                  <ul className="movie-info__list">
+                    {infoItems.map((item, index) => (
+                      <li key={index} className="movie-info__item">
+                        <span className="movie-info__name">{item.name}</span>
 
-                    {item.extraClass ? (
-                      <span className={item.extraClass}>
-                        {item.condition ? item.value : '—'}
-                      </span>
-                    ) : (
-                      <span className="movie-info__data">
-                        {item.condition ? item.value : '—'}
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
+                        {item.extraClass ? (
+                          <span className={item.extraClass}>
+                            {item.condition ? item.value : '—'}
+                          </span>
+                        ) : (
+                          <span className="movie-info__data">
+                            {item.condition ? item.value : '—'}
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="movie-info__actors">
+                  <h4 className="movie-info__title">В ролях:</h4>
+                  <ul className="movie-info__actors-list">
+                    {mock.persons?.slice(0, 10).map((item, index) => (
+                      <li
+                        key={item.id || index}
+                        className="movie-info__actors-item"
+                      >
+                        {item.name}
+                      </li>
+                    ))}
+                  </ul>
+                  {mock.persons?.length && (
+                    <p className="movie-info__actors-number">
+                      Актеров: {mock.persons?.length}
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
-            <div className="movie-info__actors">
-              <h4 className="movie-info__title">В ролях:</h4>
-              <ul className="movie-info__actors-list">
-                {mock.persons?.slice(0, 10).map((item, index) => (
-                  <li
-                    key={item.id || index}
-                    className="movie-info__actors-item"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-              {mock.persons?.length && (
-                <p className="movie-info__actors-number">
-                  Актеров: {mock.persons?.length}
-                </p>
-              )}
-            </div>
+          </section>
+        </div>
+        <div className="film-page__tabs">
+          <TabBar tabs={tabs} activeId={activeTab} onClick={tabClickHandler} />
+          <div className="film-page__tabs-content">
+            <Outlet
+              context={{ content: mock.description, facts: mock.facts }}
+            />
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
+};
+
+type ContextType = {
+  content: string | null;
+  facts: IFact[] | null;
+};
+
+export const useContextForOutlet = () => {
+  return useOutletContext<ContextType>();
 };
 
 export default FilmPage;

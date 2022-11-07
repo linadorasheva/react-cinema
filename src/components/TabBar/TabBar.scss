@@ -1,0 +1,37 @@
+.tab-bar {
+  border-bottom: 1px solid $grey;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    &--active {
+      & .tab-bar__scale {
+        background-color: $tomato;
+      }
+
+      & .tab-bar__btn {
+        color: $black;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 5px 12px 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    @include font(18, 18);
+    font-weight: 500;
+    color: $deep-grey;
+  }
+
+  &__scale {
+    height: 2px;
+    width: 100%;
+  }
+}

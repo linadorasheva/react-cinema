@@ -6,11 +6,16 @@
 @import './layout.scss';
 @import '../pages/MainPage/MainPage.scss';
 @import '../pages/FilmPage/FilmPage.scss';
+@import '../pages/FilmPage/TabsContent/FilmOverview/FilmOverview.scss';
+@import '../pages/FilmPage/TabsContent/FilmFacts/FilmFacts.scss';
+@import '../pages/FilmPage/TabsContent/FilmImages/FilmImages.scss';
 
 @import '../components/Header/Header.scss';
+@import '../components/Footer/Footer.scss';
 @import '../components/Navigation/Navigation.scss';
 @import '../components/MovieCard/MovieCard.scss';
 @import '../components/Section/Section.scss';
+@import '../components/TabBar/TabBar.scss';
 
 html,
 body {

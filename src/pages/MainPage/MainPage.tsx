@@ -1269,39 +1269,41 @@ const MainPage = () => {
 
   return (
     <div className="main-page page">
-      <Section
-        title="Фильмы"
-        linkName="Смотреть все"
-        url={RoutesNameEnum.FILMS}
-      >
-        <>
-          {mocks.docsFilm.slice(0, 4).map((card) => {
-            return <MovieCard key={card.id} card={card} />;
-          })}
-        </>
-      </Section>
-      <Section
-        title="Сериалы"
-        linkName="Смотреть все"
-        url={RoutesNameEnum.SERIALS}
-      >
-        <>
-          {mocks.docsSer.slice(0, 4).map((card) => {
-            return <MovieCard key={card.id} card={card} />;
-          })}
-        </>
-      </Section>
-      <Section
-        title="Мультфильмы"
-        linkName="Смотреть все"
-        url={RoutesNameEnum.CARTOONS}
-      >
-        <>
-          {mocks.docsCart.slice(0, 4).map((card) => {
-            return <MovieCard key={card.id} card={card} />;
-          })}
-        </>
-      </Section>
+      <div className="container">
+        <Section
+          title="Фильмы"
+          linkName="Смотреть все"
+          url={RoutesNameEnum.FILMS}
+        >
+          <>
+            {mocks.docsFilm.slice(0, 4).map((card) => {
+              return <MovieCard key={card.id} card={card} />;
+            })}
+          </>
+        </Section>
+        <Section
+          title="Сериалы"
+          linkName="Смотреть все"
+          url={RoutesNameEnum.SERIALS}
+        >
+          <>
+            {mocks.docsSer.slice(0, 4).map((card) => {
+              return <MovieCard key={card.id} card={card} />;
+            })}
+          </>
+        </Section>
+        <Section
+          title="Мультфильмы"
+          linkName="Смотреть все"
+          url={RoutesNameEnum.CARTOONS}
+        >
+          <>
+            {mocks.docsCart.slice(0, 4).map((card) => {
+              return <MovieCard key={card.id} card={card} />;
+            })}
+          </>
+        </Section>
+      </div>
     </div>
   );
 };

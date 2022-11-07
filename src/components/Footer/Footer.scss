@@ -1,0 +1,13 @@
+.page-footer {
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 24px 0;
+    @include font(12, 20);
+  }
+
+  &__city {
+    margin-right: 12px;
+  }
+}

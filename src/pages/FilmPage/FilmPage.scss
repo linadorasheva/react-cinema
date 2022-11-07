@@ -1,9 +1,28 @@
 .film-page {
-  display: flex;
-  margin-bottom: 72px;
+  background-color: $light-grey;
+
+  &__container {
+    background-color: $white;
+    padding-bottom: 72px;
+  }
+
+  &__content {
+    display: flex;
+    margin-bottom: 72px;
+    padding: 100px 52px 0;
+  }
 
   &__section {
     margin-right: 52px;
+  }
+
+  &__tabs {
+    width: calc(100% - 104px);
+    margin: 0 auto;
+  }
+
+  &__tabs-content {
+    margin-top: 56px;
   }
 }
 

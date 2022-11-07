@@ -1,0 +1,32 @@
+.film-facts {
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    margin-top: -20px;
+  }
+
+  &__item {
+    padding: 20px 0;
+    border-bottom: 1px solid $grey;
+    color: $deep-grey;
+    @include font(16, 24);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      color: $soft-black;
+      transition: color 0.15s ease-in;
+      // todo убрать, когда будет реализована страница персоны
+      pointer-events: none;
+
+      &:hover {
+        color: $orange;
+        transition: color 0.15s ease-in;
+      }
+    }
+  }
+}
