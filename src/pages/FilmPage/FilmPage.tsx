@@ -5,9 +5,10 @@ import {
   useNavigate,
   useOutletContext,
 } from 'react-router-dom';
+import SimilarMovies from '../../components/SimilarMovies/SimilarMovies';
 import TabBar from '../../components/TabBar/TabBar';
 import { IFact, ITabBar, TabsNameEnum } from '../../types/common';
-import { IMovieEntity } from '../../types/movie';
+import { IMovieEntity, ISimilarMovie } from '../../types/movie';
 import { convertNumbers, formatDate } from '../../utils/common';
 import { getMovieDuration } from '../../utils/movieUtils';
 
@@ -1313,6 +1314,10 @@ const FilmPage: FC = () => {
     }
   }, []);
 
+  const getSimilarMovies = (): ISimilarMovie[] => {
+    return mock.similarMovies ?? ([] as ISimilarMovie[]);
+  };
+
   return (
     <div className="film-page page">
       <div className="container film-page__container">
@@ -1408,6 +1413,9 @@ const FilmPage: FC = () => {
               context={{ content: mock.description, facts: mock.facts }}
             />
           </div>
+        </div>
+        <div className="film-page__similar">
+          <SimilarMovies items={getSimilarMovies()} />
         </div>
       </div>
     </div>

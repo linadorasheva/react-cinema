@@ -186,7 +186,7 @@ interface IMovieEntitySequels {
   type: string;
 }
 
-interface ISimilarMovie {
+export interface ISimilarMovie {
   _id?: string;
   alternativeName: string;
   enName: string;
