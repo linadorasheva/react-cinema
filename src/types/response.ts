@@ -1,5 +1,5 @@
 import { IImageEntity } from './image';
-import { IMovieListEntity, ISerialEntity } from './movie';
+import { IMovieEntity } from './movie';
 import { IPersonListEntity } from './person';
 import { IReviewEntity } from './review';
 
@@ -11,11 +11,14 @@ interface IData {
 }
 
 export interface IMoviesListResponse extends IData {
-  docs: IMovieListEntity[];
+  docs: IMovieEntity[];
 }
 
 export interface ISerialResponse extends IData {
-  docs: ISerialEntity[];
+  docs: IMovieEntity[];
+}
+export interface ICartoonResponse extends IData {
+  docs: IMovieEntity[];
 }
 
 export interface IPersonsListResponse extends IData {

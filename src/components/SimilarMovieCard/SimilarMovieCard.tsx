@@ -10,7 +10,7 @@ const SimilarMovieCard: FC<ISimilarMovieCardProps> = ({ card }) => {
   return (
     <div className="similar-movie-card">
       <Link
-        to="/"
+        to={`/films/${card.id}`}
         className="similar-movie-card__link similar-movie-card__link--img"
       >
         <div className="similar-movie-card__wrapper-img">
@@ -23,7 +23,7 @@ const SimilarMovieCard: FC<ISimilarMovieCardProps> = ({ card }) => {
       </Link>
 
       <div className="similar-movie-card__description">
-        <Link to="/" className="similar-movie-card__link">
+        <Link to={`/films/${card.id}`} className="similar-movie-card__link">
           <h3 className="similar-movie-card__title">{card.name || 'name'}</h3>
         </Link>
       </div>

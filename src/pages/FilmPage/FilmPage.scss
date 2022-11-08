@@ -14,6 +14,10 @@
 
   &__section {
     margin-right: 52px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &__tabs {
@@ -28,8 +32,17 @@
 
 .section-left {
   &__poster {
+    width: 360px;
     border-radius: 4px;
     overflow: hidden;
+
+    &--empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(326deg, #ffebce, #ffcddc);
+      height: 530px;
+    }
   }
 
   &__img {
@@ -41,6 +54,13 @@
     margin: 0 auto;
     object-fit: cover;
     border-radius: 4px;
+  }
+
+  &__poster-text {
+    width: 200px;
+    @include font(18, 20);
+    text-align: center;
+    color: $deep-grey;
   }
 }
 
@@ -195,6 +215,7 @@
 
   &__actors {
     flex-shrink: 0;
+    width: 200px;
   }
 
   &__title {
@@ -210,12 +231,18 @@
   &__actors-item {
     padding: 4px 0;
     @include font(14, 14);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   &__actors-number {
     @include font(14, 14);
     font-weight: 500;
     color: $orange;
+  }
+
+  &__actors-empty {
+    max-width: 360px;
+    @include font(14, 14);
+    font-weight: 400;
   }
 }

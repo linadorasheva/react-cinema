@@ -1,5 +1,3 @@
-// дата в формате d month year
-
 const months = [
   'января',
   'февраля',
@@ -15,6 +13,7 @@ const months = [
   'декабря',
 ];
 
+// дата в формате d month year
 export const formatDate = (value: string | undefined): string => {
   if (!value) {
     return '';
@@ -30,4 +29,8 @@ export const formatDate = (value: string | undefined): string => {
 
 export function convertNumbers(price: number | undefined) {
   return String(price).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+}
+
+export function getCurrentYear() {
+  return new Date().getFullYear();
 }

@@ -1,3 +1,159 @@
 .main-page {
   margin: 72px 0 0;
 }
+
+.main-page-slider-films {
+  position: relative;
+  &__slider-btn {
+    position: absolute;
+    z-index: 2;
+    top: 192px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: none;
+    background-color: $tomato;
+    color: $white;
+    cursor: pointer;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.swiper-button-disabled {
+      background-color: rgba($color: $tomato, $alpha: 0.5);
+      cursor: default;
+    }
+
+    &.swiper-button-lock {
+      display: none;
+    }
+
+    &--next {
+      right: -25px;
+    }
+
+    &--prev {
+      left: -25px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  & .swiper {
+    width: calc(100% + 20px);
+    margin: -10px -10px;
+    padding: 10px 10px;
+  }
+}
+
+.main-page-slider-serials {
+  position: relative;
+  &__slider-btn {
+    position: absolute;
+    z-index: 2;
+    top: 192px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: none;
+    background-color: $tomato;
+    color: $white;
+    cursor: pointer;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.swiper-button-disabled {
+      background-color: rgba($color: $tomato, $alpha: 0.5);
+      cursor: default;
+    }
+
+    &.swiper-button-lock {
+      display: none;
+    }
+
+    &--next {
+      right: -25px;
+    }
+
+    &--prev {
+      left: -25px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  & .swiper {
+    width: calc(100% + 20px);
+    margin: -10px -10px;
+    padding: 10px 10px;
+  }
+}
+
+.main-page-slider-cartoons {
+  position: relative;
+  &__slider-btn {
+    position: absolute;
+    z-index: 2;
+    top: 192px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: none;
+    background-color: $tomato;
+    color: $white;
+    cursor: pointer;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.swiper-button-disabled {
+      background-color: rgba($color: $tomato, $alpha: 0.5);
+      cursor: default;
+    }
+
+    &.swiper-button-lock {
+      display: none;
+    }
+
+    &--next {
+      right: -25px;
+    }
+
+    &--prev {
+      left: -25px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  & .swiper {
+    width: calc(100% + 20px);
+    margin: -10px -10px;
+    padding: 10px 10px;
+  }
+}
