@@ -1,0 +1,61 @@
+.similar-movies {
+  padding: 0 52px;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__slider {
+    position: relative;
+
+    & .swiper {
+      width: calc(100% + 20px);
+      margin: -10px -10px;
+      padding: 10px 10px;
+    }
+  }
+
+  &__slider-btn {
+    position: absolute;
+    z-index: 2;
+    top: 192px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: none;
+    background-color: $tomato;
+    color: $white;
+    cursor: pointer;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.swiper-button-disabled {
+      background-color: rgba($color: $tomato, $alpha: 0.5);
+      cursor: default;
+    }
+    
+    &.swiper-button-lock {
+      display: none;
+    }
+    
+    &--next {
+      right: -25px;
+    }
+
+    &--prev {
+      left: -25px;
+      
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.sequels-section {
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__num {
+    color: $deep-grey;
+    font-weight: 400;
+  }
+
+  &__slider {
+    position: relative;
+
+    & .swiper {
+      width: calc(100% + 20px);
+      margin: -10px -10px;
+      padding: 10px 10px;
+    }
+  }
+
+  &__slider-btn {
+    position: absolute;
+    z-index: 2;
+    top: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: none;
+    background-color: $tomato;
+    color: $white;
+    cursor: pointer;
+
+    &.swiper-button-disabled {
+      background-color: rgba($color: $tomato, $alpha: 0.5);
+      cursor: default;
+    }
+
+    &.swiper-button-lock {
+      display: none;
+    }
+
+    &--next {
+      right: 0;
+    }
+
+    &--prev {
+      left: 0;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
