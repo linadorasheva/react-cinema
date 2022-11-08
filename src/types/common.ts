@@ -13,7 +13,7 @@ export interface ITabBar {
 
 export const enum RoutesNameEnum {
   MAIN = '/',
-  FILM = 'film/:id',
+  FILM = 'films/:id',
   FILM_IMAGES = 'images',
   FILM_FACTS = 'facts',
   FILMS = 'films',

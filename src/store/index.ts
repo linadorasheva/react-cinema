@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { movieAPI } from '../services/MovieService';
 import filtersReducer from './reducers/FiltersSlice';
-import paginatinReducer from './reducers/PaginationSlice';
+import loadReducer from './reducers/LoadSlice';
+import paginationReducer from './reducers/PaginationSlice';
 
 const rootReducer = combineReducers({
   filtersReducer,
-  paginatinReducer,
+  paginationReducer,
+  loadReducer,
   [movieAPI.reducerPath]: movieAPI.reducer,
 });
 

@@ -11,8 +11,6 @@ const FilmImages = () => {
     limit: 100,
   });
 
-  console.log(images);
-
   return (
     <div className="film-images">
       <h2 className="film-images__title">Изображения</h2>

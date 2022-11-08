@@ -47,7 +47,10 @@ const MovieCard: FC<IMovieCardProps> = ({ card }) => {
 
   return (
     <div className="movie-card">
-      <Link to="/" className="movie-card__link movie-card__link--img">
+      <Link
+        to={`films/${card.id}`}
+        className="movie-card__link movie-card__link--img"
+      >
         <div className="movie-card__wrapper-img">
           <img
             src={`${card.poster?.previewUrl}` || card.poster?.url || ''}
@@ -71,7 +74,7 @@ const MovieCard: FC<IMovieCardProps> = ({ card }) => {
         </button>
       </header>
       <div className="movie-card__description">
-        <Link to="/" className="movie-card__link">
+        <Link to={`films/${card.id}`} className="movie-card__link">
           <h3 className="movie-card__title">{card.name || 'name'}</h3>
         </Link>
         <p className="movie-card__info">
