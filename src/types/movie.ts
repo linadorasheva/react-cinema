@@ -176,7 +176,7 @@ interface IMovieEntityTechnology {
   hasImax: boolean;
 }
 
-interface IMovieEntitySequels {
+export interface IMovieEntitySequels {
   _id?: string;
   alternativeName?: string;
   name?: string;

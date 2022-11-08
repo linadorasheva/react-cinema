@@ -5,10 +5,15 @@ import {
   useNavigate,
   useOutletContext,
 } from 'react-router-dom';
+import SequelsAndPrequels from '../../components/SequelsAndPrequels/SequelsAndPrequels';
 import SimilarMovies from '../../components/SimilarMovies/SimilarMovies';
 import TabBar from '../../components/TabBar/TabBar';
 import { IFact, ITabBar, TabsNameEnum } from '../../types/common';
-import { IMovieEntity, ISimilarMovie } from '../../types/movie';
+import {
+  IMovieEntity,
+  IMovieEntitySequels,
+  ISimilarMovie,
+} from '../../types/movie';
 import { convertNumbers, formatDate } from '../../utils/common';
 import { getMovieDuration } from '../../utils/movieUtils';
 
@@ -1318,6 +1323,10 @@ const FilmPage: FC = () => {
     return mock.similarMovies ?? ([] as ISimilarMovie[]);
   };
 
+  const getSequelsAndPrequels = (): IMovieEntitySequels[] => {
+    return mock.sequelsAndPrequels ?? ([] as IMovieEntitySequels[]);
+  };
+
   return (
     <div className="film-page page">
       <div className="container film-page__container">
@@ -1383,6 +1392,11 @@ const FilmPage: FC = () => {
                       </li>
                     ))}
                   </ul>
+                  {mock.sequelsAndPrequels?.length ? (
+                    <div className="movie-info__sequels">
+                      <SequelsAndPrequels cards={getSequelsAndPrequels()} />
+                    </div>
+                  ) : null}
                 </div>
                 <div className="movie-info__actors">
                   <h4 className="movie-info__title">В ролях:</h4>
@@ -1414,9 +1428,11 @@ const FilmPage: FC = () => {
             />
           </div>
         </div>
-        <div className="film-page__similar">
-          <SimilarMovies items={getSimilarMovies()} />
-        </div>
+        {mock.similarMovies?.length ? (
+          <div className="film-page__similar">
+            <SimilarMovies items={getSimilarMovies()} />
+          </div>
+        ) : null}
       </div>
     </div>
   );

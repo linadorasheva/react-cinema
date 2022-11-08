@@ -1,8 +1,11 @@
-.similar-movies {
-  padding: 0 52px;
-
+.sequels-section {
   &__title {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+  }
+
+  &__num {
+    color: $deep-grey;
+    font-weight: 400;
   }
 
   &__slider {
@@ -18,12 +21,12 @@
   &__slider-btn {
     position: absolute;
     z-index: 2;
-    top: 192px;
+    top: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     transform: translateY(-50%);
     border-radius: 50%;
     border: none;
@@ -31,27 +34,21 @@
     color: $white;
     cursor: pointer;
 
-    svg {
-      width: 30px;
-      height: 30px;
-    }
-
     &.swiper-button-disabled {
       background-color: rgba($color: $tomato, $alpha: 0.5);
       cursor: default;
     }
-    
+
     &.swiper-button-lock {
       display: none;
     }
-    
+
     &--next {
-      right: -25px;
+      right: 0;
     }
 
     &--prev {
-      left: -25px;
-      
+      left: 0;
 
       svg {
         transform: rotate(180deg);
